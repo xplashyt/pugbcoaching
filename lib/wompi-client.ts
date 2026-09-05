@@ -54,7 +54,7 @@ function leafMessages(value: unknown): string[] {
 export async function tokenizeCard(card: CardInput) {
   const publicKey = getPublicWompiKey();
   const baseUrl = wompiBaseUrl(publicKey);
-  const keyResponse = await fetch(`${baseUrl}/tokens/keys/tokenization`, { headers: { Authorization: `Bearer ${publicKey}` } });
+  const keyResponse = await fetch("/api/wompi/tokenization-key", { cache: "no-store" });
   const keyPayload = (await keyResponse.json()) as TokenizationKeyResponse;
   const tokenizationKey = keyPayload.data?.publicKey ?? keyPayload.data?.public_key;
   if (!keyResponse.ok || !tokenizationKey) {
