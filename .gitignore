@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+build/
+
+# Las llaves nunca van al repositorio: en el hosting se cargan a mano.
+# .env.example sí se sube, porque va sin secretos.
+.env
+.env.local
+.env*.local
+
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+
+.DS_Store
+Thumbs.db
